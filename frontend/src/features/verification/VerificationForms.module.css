@@ -1,0 +1,112 @@
+.formCard {
+  max-width: 540px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.formHeader {
+  margin-bottom: var(--space-4);
+}
+
+.formTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-burgundy-dark);
+}
+
+.formSubtitle {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+  line-height: 1.45;
+}
+
+.errorBanner {
+  background-color: var(--color-error-bg);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  color: var(--color-error);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  margin-bottom: var(--space-4);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.fileUploadArea {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.fileLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.fileHint {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-weight: normal;
+}
+
+.dropZone {
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+  cursor: pointer;
+  background-color: var(--color-surface-subtle);
+  transition: all 0.15s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.dropZone:hover {
+  border-color: var(--color-sand);
+  background-color: var(--color-white);
+}
+
+.hiddenFileInput {
+  display: none;
+}
+
+.uploadIcon {
+  font-size: 1.75rem;
+}
+
+.uploadPrompt {
+  font-size: 0.875rem;
+  color: var(--color-burgundy);
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.uploadHelp {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-weight: normal;
+}
+
+.fileName {
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
+}
+
+.formFooter {
+  margin-top: var(--space-2);
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,0 +1,107 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.headerInfo {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-burgundy-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.roleLine {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  flex-wrap: wrap;
+}
+
+.dot {
+  color: var(--color-border);
+}
+
+.jobLine {
+  font-size: 0.85rem;
+  color: var(--color-text-primary);
+  display: flex;
+  gap: 0.25rem;
+}
+
+.jobTitle {
+  font-weight: 500;
+}
+
+.company {
+  color: var(--color-text-muted);
+}
+
+.bio {
+  font-size: 0.825rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.skillBadge {
+  font-size: 0.725rem;
+  padding: 0.15rem 0.45rem;
+  background-color: var(--color-surface-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+}
+
+.moreSkills {
+  font-size: 0.725rem;
+  color: var(--color-text-muted);
+  align-self: center;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: auto;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.statusSection {
+  display: flex;
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-2);
+  justify-content: flex-end;
+}

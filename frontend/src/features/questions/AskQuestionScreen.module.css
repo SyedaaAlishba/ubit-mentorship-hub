@@ -1,0 +1,104 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-burgundy-dark);
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.formCard {
+  padding: var(--space-6);
+}
+
+.errorBanner {
+  background-color: var(--color-error-bg);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  color: var(--color-error);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  margin-bottom: var(--space-4);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.tagSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.tagLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.tagInputWrapper {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-1);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  color: var(--color-burgundy);
+  font-weight: 500;
+}
+
+.removeTagBtn {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 0;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.removeTagBtn:hover {
+  color: var(--color-error);
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-4);
+}

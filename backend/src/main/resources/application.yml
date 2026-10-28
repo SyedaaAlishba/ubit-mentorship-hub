@@ -1,0 +1,98 @@
+spring:
+  application:
+    name: mentorship-hub-backend
+
+  data:
+    mongodb:
+      # Override with the MONGODB_URI environment variable. Never commit real
+      # credentials: keep them in your shell / secret store instead.
+      uri: ${MONGODB_URI:mongodb://localhost:27017/ubit_mentorship_hub}
+      # Indexes are created explicitly per collection when that collection is
+      # introduced, so the application never mutates the database on startup.
+      auto-index-creation: false
+
+  session:
+    # Server-side sessions in MongoDB, so an admin can revoke one user's
+    # sessions (account disabled / role changed). Do not swap for in-memory.
+    store-type: mongodb
+    timeout: ${SESSION_TIMEOUT:60m}
+
+  servlet:
+    multipart:
+      # Matches the verification document limits enforced in code.
+      max-file-size: 5MB
+      max-request-size: 6MB
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            # Google is the only identity provider. It establishes identity
+            # ONLY - it proves nothing about UBIT student/alumni status.
+            client-id: ${GOOGLE_CLIENT_ID:}
+            client-secret: ${GOOGLE_CLIENT_SECRET:}
+            scope:
+              - openid
+              - email
+              - profile
+
+server:
+  port: ${SERVER_PORT:8080}
+  forward-headers-strategy: ${SERVER_FORWARD_HEADERS_STRATEGY:framework}
+  error:
+    include-message: never
+    include-stacktrace: never
+  servlet:
+    session:
+      cookie:
+        name: UBITSESSION
+        http-only: true
+        # Must stay false for plain-HTTP local development; true in production.
+        secure: ${SESSION_COOKIE_SECURE:false}
+        # Lax, not Strict: the OAuth callback is a top-level cross-site GET.
+        same-site: lax
+        path: /
+
+app:
+  auth:
+    # Empty disables the bootstrap. Applied when an account is CREATED only, so
+    # it can never re-promote an existing or previously demoted admin.
+    bootstrap-admin-email: ${BOOTSTRAP_ADMIN_EMAIL:}
+    # Where the browser lands after a successful Google sign-in. Defaults to the
+    # backend origin ("/"); the SPA then reads /api/auth/me and routes itself.
+    # Set to the frontend origin when the API and SPA do not share one, e.g.
+    # http://localhost:5173/ in development.
+    post-login-redirect-uri: ${APP_AUTH_POST_LOGIN_REDIRECT_URI:http://localhost:5173/}
+  mentorship:
+    # Completes or reopens acceptances interrupted by a crash on startup. See
+    # MentorshipRecoveryService. Requires a reachable MongoDB, so it is off in
+    # the test profile where no database is assumed.
+    recovery-enabled: ${MENTORSHIP_RECOVERY_ENABLED:true}
+  verification:
+    # GridFS bucket for uploaded student documents. Kept apart from the
+    # repository collections so document bytes cannot surface via a collection read.
+    gridfs-bucket: ${VERIFICATION_GRIDFS_BUCKET:verification_documents}
+  cors:
+    # Comma-separated allowed origins. Leave empty when the frontend and API
+    # share an origin (the Vite dev proxy, or same-origin production serving),
+    # which is the recommended deployment.
+    allowed-origins: ${APP_CORS_ALLOWED_ORIGINS:}
+
+  rag:
+    hf-token: ${HF_TOKEN:}
+    embedding-model: ${HF_EMBEDDING_MODEL:sentence-transformers/all-MiniLM-L6-v2}
+    chat-model: ${HF_CHAT_MODEL:Qwen/Qwen2.5-72B-Instruct}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+
+logging:
+  level:
+    com.ubit.mentorshiphub: ${APP_LOG_LEVEL:INFO}

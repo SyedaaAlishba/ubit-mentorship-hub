@@ -1,0 +1,46 @@
+# Test-profile overrides. The production application.yml is still loaded, so
+# these only replace what has to differ when running without a real Google
+# application or a real MongoDB.
+spring:
+  data:
+    mongodb:
+      # No MongoDB is needed to start the test context: the driver connects lazily
+      # and the GridFS bucket is resolved through a supplier.
+      uri: mongodb://localhost:27017/ubit_mentorship_hub_test
+  session:
+    # In-process sessions for tests. Note this property alone does NOT switch the
+    # store off: with spring-session-data-mongodb on the classpath, Boot's
+    # MongoSessionConfiguration activates regardless. InMemorySessionTestConfiguration
+    # supplies a SessionRepository bean, which is what actually makes it back off.
+    store-type: none
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            # A ClientRegistration cannot be built without an id, so tests supply
+            # obviously fake credentials. Nothing ever contacts Google with them.
+            client-id: test-client-id
+            client-secret: test-client-secret
+
+management:
+  health:
+    mongo:
+      # No MongoDB runs during tests, and probing it would add a 30s timeout to
+      # every health check. The MongoDB dependency of the real app is asserted by
+      # the container and deployment configuration, not by this suite.
+      enabled: false
+
+app:
+  mongodb:
+    # No MongoDB is reachable from tests, so attempting to build indexes would cost
+    # a connection timeout in every context that loads the application context.
+    ensure-indexes: false
+  mentorship:
+    # Startup recovery queries MongoDB; like index creation it is off in tests so
+    # a context load never waits on a database. Recovery is exercised directly by
+    # MentorshipIntegrationTest against a real MongoDB when one is reachable.
+    recovery-enabled: false
+  auth:
+    # No bootstrap administrator is created by the test suite.
+    bootstrap-admin-email: ""

@@ -1,0 +1,290 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.adminBadge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  background-color: var(--color-burgundy);
+  color: var(--color-white);
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-2);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-burgundy-dark);
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+  max-width: 620px;
+}
+
+/* ── Filter Tabs ─────────────────────────────────────── */
+.filterTabs {
+  display: flex;
+  gap: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.25rem;
+}
+
+.filterBtn {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: var(--space-2) var(--space-4);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.filterBtn:hover {
+  color: var(--color-burgundy);
+}
+
+.activeFilter {
+  color: var(--color-burgundy);
+  border-bottom-color: var(--color-burgundy);
+  font-weight: 600;
+}
+
+/* ── Table Card ──────────────────────────────────────── */
+.tableCard {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  padding-bottom: var(--space-4);
+}
+
+.tableResponsive {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.875rem;
+}
+
+.table th {
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--color-surface-subtle);
+  color: var(--color-text-muted);
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.table td {
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+
+.tableRow:hover {
+  background-color: var(--color-surface-subtle);
+}
+
+.applicantCell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.emailText {
+  font-size: 0.775rem;
+  color: var(--color-text-muted);
+}
+
+.detailsCell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.metaSub {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.linkText {
+  color: var(--color-burgundy);
+  font-size: 0.8rem;
+}
+
+.dateText {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.pageInfo {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+/* ── Modal Content ───────────────────────────────────── */
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.reviewHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.modalApplicantName {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-burgundy-dark);
+}
+
+.modalApplicantEmail {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.infoSection,
+.docSection,
+.noteSection,
+.decisionControls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.infoTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-burgundy-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  margin: 0;
+  background-color: var(--color-surface-subtle);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.detailGrid dt {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.detailGrid dd {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.fullWidthItem {
+  grid-column: span 2;
+}
+
+.docBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-3);
+  background-color: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+}
+
+.docLink {
+  color: var(--color-burgundy);
+  font-weight: 500;
+}
+
+.noteSection {
+  background-color: var(--color-surface-subtle);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+}
+
+.noteText {
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
+  line-height: 1.45;
+}
+
+.decisionControls {
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+}
+
+.decisionButtons {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.errorBanner {
+  background-color: var(--color-error-bg);
+  color: var(--color-error);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: 0.825rem;
+}
+
+.skeletonList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.skeletonCard {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}

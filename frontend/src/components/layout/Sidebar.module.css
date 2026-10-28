@@ -1,0 +1,210 @@
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--color-white);
+  border-right: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  transition: transform 0.2s ease-in-out;
+}
+
+.brand {
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.brandLogo {
+  width: 32px;
+  height: 32px;
+  background-color: var(--color-burgundy);
+  color: var(--color-white);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.brandName {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-burgundy-dark);
+  letter-spacing: -0.01em;
+}
+
+.brandSubtitle {
+  font-size: 0.725rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.nav {
+  flex: 1;
+  padding: var(--space-4) var(--space-3);
+  overflow-y: auto;
+}
+
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.navLink {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--color-text-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease-in-out;
+}
+
+.navLink:hover {
+  background-color: var(--color-surface-subtle);
+  color: var(--color-burgundy);
+}
+
+.navLink.active {
+  background-color: var(--color-blush);
+  color: var(--color-burgundy);
+  font-weight: 600;
+}
+
+.navIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+.adminSection {
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.adminLabel {
+  font-size: 0.675rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+  padding-left: var(--space-3);
+}
+
+.footer {
+  padding: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.userCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1;
+  overflow: hidden;
+  cursor: pointer;
+  padding: var(--space-1);
+  border-radius: var(--radius-md);
+  transition: background-color 0.15s;
+}
+
+.userCard:hover {
+  background-color: var(--color-surface-subtle);
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.userName {
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.userRole {
+  font-size: 0.725rem;
+  color: var(--color-text-muted);
+}
+
+.signOutBtn {
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+  padding: 0.45rem;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.signOutBtn:hover:not(:disabled) {
+  background-color: var(--color-error-bg);
+  border-color: rgba(220, 38, 38, 0.2);
+  color: var(--color-error);
+}
+
+/* Mobile backdrop */
+.backdrop {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(53, 21, 33, 0.4);
+    z-index: 45;
+  }
+}

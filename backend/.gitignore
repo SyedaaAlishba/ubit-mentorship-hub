@@ -1,0 +1,30 @@
+# Maven / build output
+target/
+
+# Maven wrapper
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/timeline.properties
+
+# Local, untracked configuration and secrets
+.env
+.env.local
+application-local.yml
+application-local.properties
+
+# Logs
+*.log
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.classpath
+.project
+nbproject/
+
+# OS
+.DS_Store
+Thumbs.db

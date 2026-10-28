@@ -1,0 +1,31 @@
+# Secrets and local configuration — never commit these
+.env
+.env.*
+!.env.example
+
+# Build output
+backend/target/
+frontend/dist/
+frontend/node_modules/
+
+# Logs
+*.log
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.classpath
+.project
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary diagnostic files
+*.err
+/scratch/
+

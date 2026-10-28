@@ -1,0 +1,419 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+/* ── Hero ────────────────────────────────────────────── */
+.hero {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background-color: #35101d;
+  background-image: url('@/assets/ubit-campus.jpg');
+  background-size: cover;
+  background-position: center 38%;
+  background-repeat: no-repeat;
+  color: var(--color-white);
+  box-shadow: 0 10px 30px -8px rgba(74, 23, 40, 0.25), 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(231, 220, 213, 0.6);
+  position: relative;
+  min-height: 230px;
+  display: flex;
+}
+
+.heroOverlay {
+  width: 100%;
+  height: 100%;
+  padding: var(--space-8) var(--space-8);
+  background: linear-gradient(
+    95deg,
+    rgba(53, 16, 29, 0.92) 0%,
+    rgba(74, 23, 40, 0.84) 42%,
+    rgba(74, 23, 40, 0.62) 72%,
+    rgba(53, 16, 29, 0.42) 100%
+  );
+  display: flex;
+  align-items: center;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 660px;
+  z-index: 1;
+}
+
+.heroBadge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #f4ebe1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  background: rgba(250, 246, 240, 0.14);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: fit-content;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.heroBadgeIcon {
+  color: #f4ebe1;
+  flex-shrink: 0;
+}
+
+.heroTitle {
+  font-size: 1.95rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.015em;
+  line-height: 1.22;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  margin: 0;
+}
+
+.heroText {
+  font-size: 0.96rem;
+  color: #faece7;
+  line-height: 1.55;
+  margin: 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  max-width: 620px;
+}
+
+/* ── Quick Actions ───────────────────────────────────── */
+.quickActions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.actionCard {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  cursor: pointer;
+}
+
+.actionBody {
+  flex: 1;
+}
+
+.actionCardDisabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+.actionCardDisabled:hover {
+  transform: none;
+  box-shadow: var(--shadow-sm);
+  border-color: var(--color-border);
+}
+
+.actionTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-burgundy-dark);
+}
+
+.actionDesc {
+  font-size: 0.825rem;
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+  line-height: 1.4;
+}
+
+/* ── AI Assistant Area ───────────────────────────────── */
+.aiSection {
+  width: 100%;
+}
+
+.aiCard {
+  background: linear-gradient(180deg, var(--color-white) 0%, var(--color-surface-subtle) 100%);
+  border: 1px solid var(--color-sand);
+  padding: var(--space-6);
+}
+
+.aiHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2);
+}
+
+.aiBadge {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-burgundy);
+}
+
+.aiStatus {
+  font-size: 0.725rem;
+  color: var(--color-success);
+  font-weight: 500;
+  background-color: var(--color-success-bg);
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-full);
+}
+
+.aiTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-burgundy-dark);
+}
+
+.aiDesc {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-top: 0.25rem;
+  margin-bottom: var(--space-4);
+}
+
+.aiSearchWrapper {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.aiInput {
+  flex: 1;
+  padding: 0.65rem 0.95rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  background-color: var(--color-white);
+  color: var(--color-text-primary);
+}
+
+.aiPrompts {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.promptLabel {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.promptChip {
+  font-size: 0.75rem;
+  color: var(--color-burgundy);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.promptChip:hover {
+  border-color: var(--color-burgundy);
+  background-color: var(--color-blush);
+}
+
+/* ── AI Result Box ───────────────────────────────────── */
+.aiResultBox {
+  margin-top: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  background-color: var(--color-surface-subtle);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.aiResultSkeleton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.aiResultHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.aiResultLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.aiResultAnswer {
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.aiResultError {
+  font-size: 0.875rem;
+  color: var(--color-error, #c0392b);
+}
+
+.aiRetryBtn,
+.aiClearBtn {
+  align-self: flex-start;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 0.35rem 0.9rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.aiRetryBtn:hover,
+.aiClearBtn:hover {
+  border-color: var(--color-burgundy);
+  color: var(--color-burgundy);
+}
+
+/* ── Content Sections ────────────────────────────────── */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-burgundy-dark);
+}
+
+.sectionSubtitle {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-top: 0.15rem;
+}
+
+.questionList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.alumniGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.mentorshipGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.mentorshipCard {
+  padding: var(--space-4);
+}
+
+.mentorshipRole {
+  font-size: 0.725rem;
+  text-transform: uppercase;
+  color: var(--color-burgundy);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.mentorshipName {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-burgundy-dark);
+  margin-top: var(--space-1);
+}
+
+.mentorshipMeta {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: var(--space-2);
+}
+
+.skeletonCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5);
+}
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: auto;
+    background-position: center 30%;
+  }
+
+  .heroOverlay {
+    padding: var(--space-6) var(--space-5);
+    background: linear-gradient(
+      180deg,
+      rgba(53, 16, 29, 0.90) 0%,
+      rgba(74, 23, 40, 0.86) 65%,
+      rgba(74, 23, 40, 0.72) 100%
+    );
+  }
+
+  .heroTitle {
+    font-size: 1.6rem;
+  }
+
+  .heroText {
+    font-size: 0.9rem;
+  }
+
+  .quickActions {
+    grid-template-columns: 1fr;
+  }
+
+  .alumniGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .mentorshipGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroOverlay {
+    padding: var(--space-5) var(--space-4);
+  }
+
+  .heroTitle {
+    font-size: 1.35rem;
+  }
+
+  .heroBadge {
+    font-size: 0.65rem;
+    padding: 3px 10px;
+  }
+}
